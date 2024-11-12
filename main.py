@@ -54,9 +54,11 @@ def on_ask_change(edit, passwd):
     reply.set_text("Рейтинг пароля: %s" % scope)
 
 
-passwd = urwid.Edit('Введите пароль: ', mask='*')
-reply = urwid.Text("")
-menu = urwid.Pile([passwd, reply])
-menu = urwid.Filler(menu, valign='top')
-urwid.connect_signal(passwd, 'change', on_ask_change)
-urwid.MainLoop(menu).run()
+if __name__ == "__main__":
+    passwd = urwid.Edit('Введите пароль: ', mask='*')
+    reply = urwid.Text("")
+    button_inst = urwid.Button("Exit")
+    menu = urwid.Pile([passwd, reply])
+    menu = urwid.Filler(menu, valign='top')
+    urwid.connect_signal(passwd, 'change', on_ask_change)
+    urwid.MainLoop(menu).run()

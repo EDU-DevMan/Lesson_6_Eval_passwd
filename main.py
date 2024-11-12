@@ -57,7 +57,6 @@ def on_ask_change(edit, passwd):
 if __name__ == "__main__":
     passwd = urwid.Edit('Введите пароль: ', mask='*')
     reply = urwid.Text("")
-    button_inst = urwid.Button("Exit")
     menu = urwid.Pile([passwd, reply])
     menu = urwid.Filler(menu, valign='top')
     urwid.connect_signal(passwd, 'change', on_ask_change)
